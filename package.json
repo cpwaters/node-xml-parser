@@ -1,0 +1,31 @@
+{
+  "name": "xml-parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cpwaters/node-xml-parser.git"
+  },
+  "author": "c waters",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cpwaters/node-xml-parser/issues"
+  },
+  "homepage": "https://github.com/cpwaters/node-xml-parser#readme",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "eyes": "^0.1.8",
+    "nodemon": "^2.0.15",
+    "xml": "^1.0.1",
+    "xml2js": "^0.4.23",
+    "xmldoc": "^1.1.2",
+    "xmldom": "^0.6.0",
+    "xpath": "0.0.32"
+  }
+}
