@@ -1,0 +1,7 @@
+<h2><%= dataCollector.data.mascusexport.exportid %> <%= dataCollector.title %></h2>
+<p>Product Count: <%= dataCollector.data.mascusexport.productcount %></p>
+
+
+<p>Data: <% dataCollector.data.mascusexport.catalogs.map((catalog,i) => { %>
+    <div><%- JSON.stringify(catalog) %></div>
+<% }) %></p>

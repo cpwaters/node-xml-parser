@@ -5,10 +5,6 @@ const path = require('path');
 const xml = require('xml');
 let dataModule = require('./data');
 
-let xmlData = dataModule.value;
-
-console.log('xmlData: ', xmlData);
-
 app.engine('.ejs', require('ejs').__express);
 app.set('views', path.join(__dirname, 'views'));
 
@@ -18,18 +14,24 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
 app.get('/', (req,res) => {
-    res.send("node xml parser");
+    res.send("node xml parser Backend");
 });
 
-const dataColector = {
-    title: 'Data', 
-    data: xmlData
-}
-
-
-
-app.get('/data', (req,res) => {
-    res.render('pages/data', {dataColector: dataColector});
+app.get('/api', (req,res) => {
+    return new Promise((resolve, reject) => {
+        dataModule.getData2('https://services.mascus.com/api/getexport.aspx?exportid=JTPlant' ).then(xmlData => {
+        console.log(xmlData);
+        const dataCollector = {
+            title: 'Data', 
+            data: xmlData
+        }
+        res.render({dataCollector: dataCollector});
+        resolve();
+        })
+        .catch(err => {
+            reject();
+        });
+    })
 });
 
 app.listen(port, () => {
